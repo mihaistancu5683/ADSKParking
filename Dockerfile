@@ -1,11 +1,22 @@
-# Set node image to start from
+# You should always specify a full version here to ensure all of your developers
+# are running the same version of Node.
 FROM node:8.9.1-alpine
-# Set the current working directory to the new mapped folder.
-WORKDIR /usr/src/app
-COPY package*.json ./
-# install only dependencies, not devDependencies
-RUN npm install --only=production 
-# Bundle app source
-COPY . .
+
+# Override the base log level (info).
+ENV NPM_CONFIG_LOGLEVEL warn
+
+# Install and configure `serve`.
+RUN npm install -g serve
+CMD serve -s build
 EXPOSE 80
-CMD [ "npm", "start" ]
+
+# Install all dependencies of the current project.
+COPY package.json package.json
+COPY package-lock.json package-lock.json
+RUN npm install
+
+# Copy all local files into the image.
+COPY . .
+
+# Build for production.
+RUN npm run build --production
