@@ -1,0 +1,15 @@
+{
+  "name": "TypeScript-React-Starter",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
