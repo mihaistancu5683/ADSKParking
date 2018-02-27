@@ -24,7 +24,6 @@
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
-    "serve": "^6.4.11",
     "typescript": "^2.7.2"
   },
   "scripts": {
@@ -32,7 +31,6 @@
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
-    "deployOld": "npm run build && heroku container:login && heroku container:push web",
-    "deploy": "npm run build --production && heroku container:login && heroku container:push web"
+    "deploy": "npm install && npm run build && heroku container:login && heroku container:push web"
   }
 }
