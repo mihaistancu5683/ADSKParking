@@ -3,14 +3,17 @@ FROM node:8.9.1-alpine
 # Set the current working directory to the new mapped folder.
 WORKDIR /usr/src/app
 
-# Expose the port that serve will use
-EXPOSE 5000
+COPY package*.json ./
 
-# Install serve
+# Bundle app source
+COPY . .
+
+RUN npm install
+
 RUN npm install -g serve
 
-# Add build folder to container
-ADD build /usr/src/app/build
+RUN npm run build
 
-# RUN serve -s build
+EXPOSE 5000
+
 CMD [ "serve", "-s", "build" ]
