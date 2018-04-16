@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "8.9.1"
+    "node": "8.9.4"
   },
   "devDependencies": {
     "react-scripts-ts": "2.15.1",
