@@ -1,6 +1,9 @@
 import * as React from 'react';
 import * as enzyme from 'enzyme';
 import Hello from './Hello';
+import * as Adapter from 'enzyme-adapter-react-16';
+import { configure } from 'enzyme';
+configure({ adapter: new Adapter() });
 
 it('renders the correct text when no enthusiasm level is given', () => {
   const hello = enzyme.shallow(<Hello name="Daniel" />);
@@ -12,7 +15,7 @@ it('renders the correct text with an explicit enthusiasm of 1', () => {
   expect(hello.find('.greeting').text()).toEqual('Hello Daniel!');
 });
 
-it('renders the correct text with an explicit enthusiasm level of 5', () => {
+it('renders the qrrect text with an explicit enthusiasm level of 5', () => {
   const hello = enzyme.shallow(<Hello name="Daniel" enthusiasmLevel={5} />);
   expect(hello.find('.greeting').text()).toEqual('Hello Daniel!!!!!');
 });
