@@ -3,3 +3,10 @@ node_js:
   - 8.9.1
 script:
   - "npm run test"
+deploy:
+  provider: heroku
+  api_key:
+    secure: 9ac30907-d8f6-4360-8ab2-c5ce07ab8c35
+  app: adskparking
+  on:
+    repo: mihaistancu5683/ADSKParking
