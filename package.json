@@ -37,6 +37,6 @@
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
     "deploy": "npm install && npm run build && heroku container:login && heroku container:push web",
-    "tslint": "tslint -c tslint.json src/**/*.tsx"
+    "tslint": "tslint --project tsconfig.json --config tslint.json"
   }
 }
